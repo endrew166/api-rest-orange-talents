@@ -1,4 +1,4 @@
-###Contexto:
+### Contexto:
 
 Você está fazendo uma API REST que precisará controlar a aplicação de vacinas entre a população brasileira. O primeiro passo deve ser a construção de um cadastro de usuários, sendo obrigatórios dados como: nome, e-mail, CPF e data de nascimento, onde e-mail e CPF devem ser únicos.
 
@@ -6,7 +6,7 @@ O segundo passo é criar um cadastro de aplicação de vacinas, sendo obrigatór
 
 Você deve construir apenas dois endpoints neste sistema, o cadastro do usuário e o cadastro da aplicação da vacina. Caso os cadastros estejam corretos, é necessário voltar o Status 201, caso hajam erros de preenchimento de dados, o Status deve ser 400.
 
-###API
+### API
 - `/usuario/`: Ponto de entrada para cadastro de usuário (POST).
 ```json
 {
@@ -25,20 +25,20 @@ Você deve construir apenas dois endpoints neste sistema, o cadastro do usuário
 }
 ```
 
-###IDE
+### IDE
 Para o desenvolvimento do projeto foi utilizado e recomenda-se IDE Eclipse, utilizando Java 8.
 
-#####Instalação 
+##### Instalação 
 1. Clone o repositório utilizando `git clone https://github.com/endrew166/api-rest-orange-talents.git` 
 2. Importe o projeto Maven no Eclipse.
 3. Execute o programa pela main da classe `CadastroAplication.java`
 
-###Spring Dependencies
+### Spring Dependencies
 - H2 Database.
 - Spring Web.
 - Spring Boot DevTools.
 - Spring Data JPA.
 - Validation.
 
-###Testes
+### Testes
 Para execução de testes recomenda-se a ferramenta [Insomnia](https://insomnia.rest/ "Insomnia"). A API trabalha com o método POST é corpo em JSON, como exemplificado na seção API. 
