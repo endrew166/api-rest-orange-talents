@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,14 +24,15 @@ public class VacinaController {
 	private UsuarioRepository usuarioRepository;
 	@PostMapping
 	ResponseEntity<?> CadastrarVacina(@RequestBody @Valid CadastroVacinaRequest requisicao) {
-		Optional<Usuario> validacaoEmail = usuarioRepository.findByEmail(requisicao.getEmail());
-		if(!validacaoEmail.isPresent()) {
+		Optional<Usuario> usuario = usuarioRepository.findByEmail(requisicao.getEmail());
+		if(!usuario.isPresent()) {
 			return ResponseEntity.badRequest().body("Não existe nenhum usuario com este email");
 		}
-		Vacina novaVacina = requisicao.paraVacina();
-		vacinaRepository.save(novaVacina);
-		VacinaResponse resposta = new VacinaResponse(novaVacina);
 		
-		return ResponseEntity.ok(resposta);
+		Vacina novaVacina = requisicao.paraVacina(usuario.get());
+		
+		vacinaRepository.save(novaVacina);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 }

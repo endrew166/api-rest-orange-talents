@@ -7,6 +7,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
+import com.cadastro.cadastro.usuario.Usuario;
+
 public class CadastroVacinaRequest {
 	@NotBlank
 	private String name;
@@ -23,9 +25,8 @@ public class CadastroVacinaRequest {
 		this.dataVacina = dataVacina;
 	}
 
-
-	public Vacina paraVacina() {
-		return new Vacina(name, email, dataVacina);
+	public Vacina paraVacina(Usuario usuario) {
+		return new Vacina(name, usuario, dataVacina);
 	}
 
 
