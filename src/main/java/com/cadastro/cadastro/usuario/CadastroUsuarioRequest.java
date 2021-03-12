@@ -10,15 +10,18 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class CadastroUsuarioRequest {
-	@NotBlank   
+	@NotBlank
 	private String name;
-	@Email @NotBlank
+	@Email
+	@NotBlank
 	private String email;
-	@CPF @NotBlank
+	@CPF
+	@NotBlank
 	private String cpf;
-	@PastOrPresent @NotNull
+	@PastOrPresent
+	@NotNull
 	private LocalDate dataNascimento;
-	
+
 	public CadastroUsuarioRequest(@NotBlank String name, @Email @NotBlank String email, @CPF @NotBlank String cpf,
 			@PastOrPresent LocalDate dataNascimento) {
 		super();
@@ -28,26 +31,16 @@ public class CadastroUsuarioRequest {
 		this.dataNascimento = dataNascimento;
 	}
 
-public Usuario paraUsuario() {
-	return new Usuario(name, email, cpf, dataNascimento);
-}
+	public Usuario paraUsuario() {
+		return new Usuario(name, email, cpf, dataNascimento);
+	}
 
-public String getName() {
-	return name;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public String getEmail() {
-	return email;
-}
-
-public String getCpf() {
-	return cpf;
-}
-
-public LocalDate getDataNascimento() {
-	return dataNascimento;
-}
-
-
+	public String getCpf() {
+		return cpf;
+	}
 
 }

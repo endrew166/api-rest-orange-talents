@@ -16,21 +16,28 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Usuario {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank @Column(nullable = false)
+	@NotBlank
+	@Column(nullable = false)
 	private String name;
-	@Email @NotBlank @Column(unique = true, nullable = false)
+	@Email
+	@NotBlank
+	@Column(unique = true, nullable = false)
 	private String email;
-	@CPF @NotBlank @Column(nullable = false)
+	@CPF
+	@NotBlank
+	@Column(nullable = false)
 	private String cpf;
-	@PastOrPresent @NotNull
+	@PastOrPresent
+	@NotNull
 	private LocalDate dataNascimento;
-	
+
 	@Deprecated
 	public Usuario() {
-		}
-	
+	}
+
 	public Usuario(@NotBlank String name, @Email @NotBlank String email, @CPF @NotBlank String cpf,
 			@PastOrPresent LocalDate dataNascimento) {
 		super();
@@ -39,28 +46,5 @@ public class Usuario {
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-	
-	
-
 
 }

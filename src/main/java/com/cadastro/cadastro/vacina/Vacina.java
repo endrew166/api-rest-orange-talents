@@ -17,38 +17,24 @@ import com.cadastro.cadastro.usuario.Usuario;
 
 @Entity
 public class Vacina {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank @Column(nullable = false)
+	@NotBlank
+	@Column(nullable = false)
 	private String name;
 	@OneToOne
 	private Usuario usuario;
 
-	@PastOrPresent @NotNull
+	@PastOrPresent
+	@NotNull
 	private LocalDate dataVacina;
-	
+
 	public Vacina(@NotBlank String name, Usuario usuario, @PastOrPresent LocalDate dataVacina) {
 		super();
 		this.name = name;
 		this.usuario = usuario;
 		this.dataVacina = dataVacina;
 	}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public LocalDate getDataVacina() {
-		return dataVacina;
-	}
-
 
 }

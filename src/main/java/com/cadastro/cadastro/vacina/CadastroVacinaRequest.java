@@ -12,11 +12,13 @@ import com.cadastro.cadastro.usuario.Usuario;
 public class CadastroVacinaRequest {
 	@NotBlank
 	private String name;
-	@Email @NotBlank
+	@Email
+	@NotBlank
 	private String email;
-	@PastOrPresent @NotNull
+	@PastOrPresent
+	@NotNull
 	private LocalDate dataVacina;
-	
+
 	public CadastroVacinaRequest(@NotBlank String name, @Email @NotBlank String email,
 			@PastOrPresent LocalDate dataVacina) {
 		super();
@@ -29,21 +31,8 @@ public class CadastroVacinaRequest {
 		return new Vacina(name, usuario, dataVacina);
 	}
 
-
-	public String getName() {
-		return name;
-	}
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
-	public LocalDate getDataVacina() {
-		return dataVacina;
-	}
-
-	
 
 }
